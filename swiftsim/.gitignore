@@ -1,0 +1,14 @@
+build/
+*.exe
+*.pyd
+*.obj
+*.iobj
+*.pdb
+*.ipdb
+*.exp
+*.lib
+AirSim/
+__pycache__/
+*.egg-info/
+.eggs/
+dist/
