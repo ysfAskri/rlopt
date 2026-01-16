@@ -128,9 +128,8 @@ struct DroneSwarmGPU {
         }
     }
 
-    ~DroneSwarmGPU() {
-        deallocate();
-    }
+    // NOTE: No destructor! Destructor makes struct non-trivially-copyable
+    // which breaks CUDA kernel parameter passing. Call deallocate() explicitly.
 };
 
 // ============================================================================
@@ -481,6 +480,7 @@ public:
     }
 
     ~SwarmPhysicsCUDA() {
+        swarm.deallocate();  // Manually deallocate since DroneSwarmGPU has no destructor
         if (d_observations) cudaFree(d_observations);
         if (d_actions) cudaFree(d_actions);
     }

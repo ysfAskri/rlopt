@@ -3,6 +3,7 @@
 
 #include "swarm_physics_cuda.cuh"
 #include <iostream>
+#include <iomanip>
 #include <chrono>
 #include <vector>
 
